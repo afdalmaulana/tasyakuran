@@ -60,14 +60,16 @@ export default function Cover() {
             {/* <Fade cascade duration={1000} direction="up"> */}
             <Box
               textAlign={"center"}
-              px={"100px"}
+              px={"80px"}
               color={"white"}
               paddingBottom={"24px"}
             >
-              <Heading fontSize={"18px"}>Tasyakuran & Aqiqah</Heading>
-              <Text fontSize={"20px"} fontWeight={"bold"}>
+              <div className="font-beauty text-3xl mb-4">
+                Tasyakuran & Aqiqah
+              </div>
+              <div className="text-xl font-headLine">
                 Alhabsyi, Raffasya, Fauziyah
-              </Text>
+              </div>
               <Text marginTop={"12px"} fontSize={"12px"}>
                 Tanpa mengurangi rasa hormat.
               </Text>
@@ -87,6 +89,7 @@ export default function Cover() {
                 _hover={{ color: "#2C3333", bgColor: "white" }}
                 onClick={() => toContent()}
                 mt={"12px"}
+                padding={"8px 12px"}
                 borderRadius={"30px"}
               >
                 Buka Undangan

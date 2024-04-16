@@ -1,21 +1,17 @@
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  IconButton,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Heading, IconButton, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 // import { IoPlayCircle } from "react-icons/io5";
-import { FaPlay, FaPause } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { FaCompactDisc } from "react-icons/fa6";
+import { Fade } from "react-awesome-reveal";
 import { BsFillDiscFill } from "react-icons/bs";
-import Landing1 from "../../assets/landing-1.jpeg";
-import Landing2 from "../../assets/landing-2.jpeg";
-import Landing3 from "../../assets/landing-3.jpeg";
+import Landing1 from "../../assets/Frame5.png";
+import Landing2 from "../../assets/Frame6.png";
+import Landing3 from "../../assets/Frame8.png";
 import song from "../../assets/songs.mp3";
+import Dates from "./Dates";
+import Event from "./Event";
+import Gallery from "./Gallery";
 
 const images = [Landing1, Landing2, Landing3];
 
@@ -51,8 +47,8 @@ const Landing = () => {
       <Box position="relative">
         <IconButton
           position="fixed"
-          bottom={5}
-          left={5}
+          bottom={10}
+          left={10}
           zIndex="1000"
           icon={
             isPlaying ? (
@@ -75,7 +71,14 @@ const Landing = () => {
         <audio ref={audioRef} preload="auto" autoPlay={true} loop>
           <source src={song} type="audio/mpeg" />
         </audio>
-        <Box
+        <div
+          className="h-[100vh] max-w-[438px] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative"
+          style={{
+            backgroundImage: `url(${images[currentImageIndex]})`,
+            transition: "background-image 1s ease-in-out",
+          }}
+        >
+          {/* <Box
           w={{ base: "100vw", sm: "100vw", md: "438px", lg: "438px" }}
           backgroundImage={`url(${images[currentImageIndex]})`}
           backgroundSize={"cover"}
@@ -89,7 +92,7 @@ const Landing = () => {
           style={{
             transition: "background-image 1s ease-in-out",
           }}
-        >
+        > */}
           <Center>
             <Box
               position="absolute"
@@ -97,35 +100,49 @@ const Landing = () => {
               textAlign={"center"}
               color={"white"}
             >
-              <Heading fontSize={"24px"}>The Wedding Of</Heading>
-              <Text
-                fontSize={{ base: "24px", lg: "32px" }}
-                lineHeight={"60px"}
-                fontWeight={"bold"}
-              >
-                Rimba & Dewi
-              </Text>
-              <Text fontStyle={"italic"}>Minggu, 04 Februari 2024</Text>
+              <Fade duration={2000} direction="down" cascade="true">
+                <div className="font-beauty text-5xl mb-4">
+                  Tasyakuran & Aqiqah
+                </div>
+                <div className="text-[12px] mt-1">
+                  <Fade duration={2000} direction="down" cascade="true">
+                    <ul className="gap-4 space-y-1 font-bodyy mt-1">
+                      <li>Alhabsyi Abdullah Kaimuddin Dg Gading</li>
+                      <li>Muhammad Raffasya Alfarizqi Dg Tombong</li>
+                      <li>Nur Fauziyah Aprilia Dg Carammeng</li>
+                    </ul>
+                  </Fade>
+                </div>
+                <Text
+                  fontSize={{ base: "24px", lg: "32px" }}
+                  lineHeight={"60px"}
+                  fontWeight={"bold"}
+                ></Text>
+                <div className="mt-2 italic font-bodyy text-xl font-bold">
+                  Minggu,19 Mei 2024
+                </div>
+                {/* <Text fontStyle={"italic"}>Minggu,19 Mei 2024</Text> */}
 
-              <Box
-                px={"20px"}
-                minWidth={"320px"}
-                maxWidth={"438px"}
-                py={"20px"}
-              >
-                <Text fontSize={"10px"} fontWeight={"bold"}>
-                  &quot;Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia
-                  menciptakan pasangan-pasangan untukmu dari (jenis) dirimu
-                  sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di
-                  antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang
-                  demikian itu benar-benar terdapat tanda-tanda (kebesaran
-                  Allah) bagi kaum yang berpikir.&quot;
-                </Text>
-                <Text>Q.S Ar Rum Ayat 21</Text>
-              </Box>
+                <Box
+                  px={"20px"}
+                  minWidth={"320px"}
+                  maxWidth={"438px"}
+                  py={"20px"}
+                >
+                  <Text fontSize={"10px"} fontWeight={"bold"}>
+                    &quot;Semoga aqiqah ini menjadi berkah bagi bayi dan
+                    keluarga, dan semoga sedekah yang dikeluarkan menjadi
+                    penyelamat keluarga di akhirat nanti.&quot;
+                  </Text>
+                </Box>
+              </Fade>
             </Box>
           </Center>
-        </Box>
+        </div>
+        <Dates />
+        <Event />
+        <Gallery />
+        {/* </Box> */}
         {/* <Dates />
           <Groom1 />
           <Connections />

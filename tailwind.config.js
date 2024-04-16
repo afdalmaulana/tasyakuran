@@ -8,7 +8,9 @@ module.exports = {
         'greys' : '#b3b6ba'
       },
       fontFamily : {
-        headLine : ['Plus Jakarta Sans', 'sans-serif']
+        headLine : ['Plus Jakarta Sans', 'sans-serif'],
+        beauty : ['Dancing Script', 'cursive'],
+        bodyy : ['Montserrat', 'sans-serif']
       }
     },
     screens: {
