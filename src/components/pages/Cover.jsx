@@ -60,12 +60,12 @@ export default function Cover() {
             {/* <Fade cascade duration={1000} direction="up"> */}
             <Box
               textAlign={"center"}
-              px={"80px"}
+              // px={"80px"}
               color={"white"}
               paddingBottom={"24px"}
             >
               <div className="font-beauty text-3xl mb-4">
-                Tasyakuran & Aqiqah
+                Pengislaman & Penamatan
               </div>
               <div className="text-xl font-headLine">
                 Alhabsyi, Raffasya, Fauziyah
