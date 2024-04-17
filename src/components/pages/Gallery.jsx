@@ -7,24 +7,24 @@ import "react-image-gallery/styles/css/image-gallery.css";
 const Gallery = () => {
   const images = [
     {
-      original: "images/Galeri 7.png",
-      thumbnail: "images/Galeri 7.png",
+      original: "images/Galeri 1.png",
+      thumbnail: "images/Galeri 1.png",
     },
     {
-      original: "images/Galeri 8.png",
-      thumbnail: "images/Galeri 8.png",
+      original: "images/Galeri 4.png",
+      thumbnail: "images/Galeri 4.png",
     },
     {
-      original: "images/Galeri 3.jpeg",
-      thumbnail: "images/Galeri 3.jpeg",
+      original: "images/Galeri 2.png",
+      thumbnail: "images/Galeri 2.png",
     },
     {
-      original: "images/Galeri 4.jpeg",
-      thumbnail: "images/Galeri 4.jpeg",
+      original: "images/Galeri 5.png",
+      thumbnail: "images/Galeri 5.png",
     },
     {
-      original: "images/Galeri 5.jpeg",
-      thumbnail: "images/Galeri 5.jpeg",
+      original: "images/Galeri 3.png",
+      thumbnail: "images/Galeri 3.png",
     },
     {
       original: "images/Galeri 6.png",

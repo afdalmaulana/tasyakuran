@@ -21,7 +21,9 @@ export default function Event() {
       <Box bgColor={"#F4EAE0"} py={"100px"} maxW={"438px"}>
         <Box textAlign={"center"}>
           <Fade duration={800} cascade="true" triggerOnce>
-            <Text letterSpacing={"10px"}>Tasyakuran & Aqiqah</Text>
+            <Text letterSpacing={"8px"} className="font-bodyy">
+              Pengislaman & Penamatan
+            </Text>
             <div className="font-beauty text-[68px]">Event</div>
 
             {/* <Image  src={eventPic}></Image> */}

@@ -28,13 +28,6 @@ const Person3 = () => {
               Dg Tombong
             </Text>
           </Fade>
-          <Link to={"https://www.instagram.com/avodicaprio/"} target="blank">
-            <IconButton
-              variant={""}
-              icon={<FaInstagram />}
-              color={"white"}
-            ></IconButton>
-          </Link>
         </Box>
       </Box>
       <Box

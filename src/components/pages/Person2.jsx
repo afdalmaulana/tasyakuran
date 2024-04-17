@@ -18,7 +18,12 @@ const Person2 = () => {
       >
         <Heading textAlign={"center"} mx={"auto"}>
           <Fade duration={2000} direction="up" cascade="true">
-            <Text transform={"rotate(-90deg)"} fontSize={"42px"} mt={"30px"}>
+            <Text
+              transform={"rotate(-90deg)"}
+              className="font-bodyy"
+              fontSize={"42px"}
+              mt={"30px"}
+            >
               Alhabsyi
             </Text>
           </Fade>
@@ -44,13 +49,6 @@ const Person2 = () => {
               Dg. Gading
             </Text>
           </Fade>
-          <Link to={"https://www.instagram.com/avodicaprio/"} target="blank">
-            <IconButton
-              variant={""}
-              icon={<FaInstagram />}
-              color={"white"}
-            ></IconButton>
-          </Link>
         </Box>
       </Box>
     </Flex>

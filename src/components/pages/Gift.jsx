@@ -64,11 +64,12 @@ export default function Gift() {
         // minHeight="200vh"
         bgColor={"#F4EAE0"}
         py={"50px"}
-        px={"30px"}
       >
         <Center>
           <Box textAlign={"center"} flexDirection="column">
-            <Text letterSpacing={"10px"}>Tasyakuran & Aqiqah</Text>
+            <Text letterSpacing={"8px"} className="font-bodyy">
+              Pengislaman & Penamatan
+            </Text>
             <Box>
               <div className="font-beauty text-[88px] text-[#8B7E74]">Gift</div>
             </Box>
@@ -82,6 +83,7 @@ export default function Gift() {
           mt={"12px"}
           fontSize={"14px"}
           className="font-bodyy"
+          px={"30px"}
         >
           <Text>Tanpa mengurangi rasa hormat,</Text>
           <Text mt={"8px"} className="font-bodyy">
@@ -97,7 +99,7 @@ export default function Gift() {
             fontWeight={"bold"}
           >
             <Image src={qris} w={"60%"} />
-            <Text mt={"12px"}>KAIMUDDIN \S</Text>
+            <Text mt={"12px"}>KAIMUDDIN S</Text>
             <Text color="#8B7E74">7990480472</Text>
             <Button
               onClick={() => copyMandiri("7990480472")}

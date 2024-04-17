@@ -16,6 +16,8 @@ import Person1 from "./Person1";
 import Person2 from "./Person2";
 import Person3 from "./Person3";
 import Gift from "./Gift";
+import Quotes from "./Quotes";
+import Family from "./Family";
 
 const images = [Landing1, Landing2, Landing3];
 
@@ -106,8 +108,8 @@ const Landing = () => {
               color={"white"}
             >
               <Fade duration={2000} direction="down" cascade="true">
-                <div className="font-beauty text-5xl mb-4">
-                  Tasyakuran & Aqiqah
+                <div className="font-beauty text-4xl mb-4">
+                  Pengislaman & Penamatan
                 </div>
                 <div className="text-[12px] mt-1">
                   <Fade duration={2000} direction="down" cascade="true">
@@ -135,9 +137,9 @@ const Landing = () => {
                   py={"20px"}
                 >
                   <Text fontSize={"10px"} fontWeight={"bold"}>
-                    &quot;Semoga aqiqah ini menjadi berkah bagi bayi dan
-                    keluarga, dan semoga sedekah yang dikeluarkan menjadi
-                    penyelamat keluarga di akhirat nanti.&quot;
+                    &quot;Semoga ini menjadi berkah bagi anak dan keluarga, dan
+                    semoga sedekah yang dikeluarkan menjadi penyelamat keluarga
+                    di akhirat nanti.&quot;
                   </Text>
                 </Box>
               </Fade>
@@ -149,8 +151,10 @@ const Landing = () => {
         <Person2 />
         <Person3 />
         <Event />
+        <Quotes />
         <Gift />
         <Gallery />
+        <Family />
 
         {/* </Box> */}
         {/* <Dates />
