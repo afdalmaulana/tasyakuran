@@ -5,13 +5,17 @@ import { FaPlay } from "react-icons/fa";
 import { FaCompactDisc } from "react-icons/fa6";
 import { Fade } from "react-awesome-reveal";
 import { BsFillDiscFill } from "react-icons/bs";
-import Landing1 from "../../assets/Frame5.png";
-import Landing2 from "../../assets/Frame6.png";
-import Landing3 from "../../assets/Frame8.png";
+import Landing1 from "../../assets/landing-1.png";
+import Landing2 from "../../assets/landing-2.png";
+import Landing3 from "../../assets/covers.png";
 import song from "../../assets/songs.mp3";
 import Dates from "./Dates";
 import Event from "./Event";
 import Gallery from "./Gallery";
+import Person1 from "./Person1";
+import Person2 from "./Person2";
+import Person3 from "./Person3";
+import Gift from "./Gift";
 
 const images = [Landing1, Landing2, Landing3];
 
@@ -47,24 +51,25 @@ const Landing = () => {
       <Box position="relative">
         <IconButton
           position="fixed"
-          bottom={10}
-          left={10}
+          bottom={20}
+          left={20}
           zIndex="1000"
+          padding={"6px"}
           icon={
             isPlaying ? (
               <FaCompactDisc size="48px" color="#413F42" />
             ) : (
-              <FaPlay color="black" />
+              <FaCompactDisc size="48px" color="white" />
             )
           }
           size={"lg"}
           // bgColor={"#776B5D"}
-          bgColor={"white"}
+          // bgColor={"white"}
           onClick={toggleAudio}
           borderRadius={"100px"}
           variant={""}
           color={"black"}
-          _hover={{ bgColor: "#F4EAE0", color: "#E4CFC8" }}
+          _hover={{ color: "#E4CFC8" }}
           transform={`rotate(${isPlaying ? "360deg" : "0deg"})`}
           transition="transform 2s linear infinite"
         />
@@ -140,8 +145,13 @@ const Landing = () => {
           </Center>
         </div>
         <Dates />
+        <Person1 />
+        <Person2 />
+        <Person3 />
         <Event />
+        <Gift />
         <Gallery />
+
         {/* </Box> */}
         {/* <Dates />
           <Groom1 />

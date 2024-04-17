@@ -7,12 +7,12 @@ import "react-image-gallery/styles/css/image-gallery.css";
 const Gallery = () => {
   const images = [
     {
-      original: "images/Galeri 1.png",
-      thumbnail: "images/Galeri 1.png",
+      original: "images/Galeri 7.png",
+      thumbnail: "images/Galeri 7.png",
     },
     {
-      original: "images/Galeri 2.jpeg",
-      thumbnail: "images/Galeri 2.jpeg",
+      original: "images/Galeri 8.png",
+      thumbnail: "images/Galeri 8.png",
     },
     {
       original: "images/Galeri 3.jpeg",

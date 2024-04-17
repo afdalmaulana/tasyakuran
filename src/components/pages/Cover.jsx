@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { IoIosMail } from "react-icons/io";
 import Landing from "./Landing";
 // import Landing from "./Pages/Landing";
-import coverPict from "../../assets/Frame1.png";
+import coverPict from "../../assets/covers.png";
 
 export default function Cover() {
   const { search } = useLocation();
