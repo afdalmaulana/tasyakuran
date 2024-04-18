@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
 export default function Dates() {
-  const tasyakuranDate = new Date("2024-05-19T02:00:00Z");
+  const tasyakuranDate = new Date("2024-05-18T02:00:00Z");
   const resepsiDate = new Date("2024-01-08T11:00:00Z");
 
   const calculateCountdown = (targetDate) => {
@@ -27,7 +27,7 @@ export default function Dates() {
     return { days, hours, minutes };
   };
 
-  const [akadCountdown, setAkadCountdown] = useState(
+  const [tasyakuranCountDown, settasyakuranCountDown] = useState(
     calculateCountdown(tasyakuranDate)
   );
   const [resepsiCountdown, setResepsiCountdown] = useState(
@@ -36,7 +36,7 @@ export default function Dates() {
 
   useEffect(() => {
     const akadTimer = setInterval(() => {
-      setAkadCountdown(calculateCountdown(tasyakuranDate));
+      settasyakuranCountDown(calculateCountdown(tasyakuranDate));
     }, 1000);
 
     const resepsiTimer = setInterval(() => {
@@ -86,7 +86,9 @@ export default function Dates() {
                 <Flex justifyContent={"space-between"}>
                   <Box width="30%" textAlign="center">
                     <Text fontSize={"32px"}>
-                      {akadCountdown.days < 0 ? 0 : akadCountdown.days}
+                      {tasyakuranCountDown.days < 0
+                        ? 0
+                        : tasyakuranCountDown.days}
                     </Text>
                     <Text fontWeight={"bold"} fontSize={"12px"}>
                       Days
@@ -94,7 +96,9 @@ export default function Dates() {
                   </Box>
                   <Box width="30%" textAlign="center">
                     <Text fontSize={"32px"}>
-                      {akadCountdown.days < 0 ? 0 : akadCountdown.hours}
+                      {tasyakuranCountDown.days < 0
+                        ? 0
+                        : tasyakuranCountDown.hours}
                     </Text>
                     <Text fontWeight={"bold"} fontSize={"12px"}>
                       Hours
@@ -102,7 +106,9 @@ export default function Dates() {
                   </Box>
                   <Box width="30%" textAlign="center">
                     <Text fontSize={"32px"}>
-                      {akadCountdown.days < 0 ? 0 : akadCountdown.minutes}
+                      {tasyakuranCountDown.days < 0
+                        ? 0
+                        : tasyakuranCountDown.minutes}
                     </Text>
                     <Text fontWeight={"bold"} fontSize={"12px"}>
                       Minutes

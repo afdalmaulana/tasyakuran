@@ -27,11 +27,11 @@ export default function Event() {
             <div className="font-beauty text-[68px]">Event</div>
 
             {/* <Image  src={eventPic}></Image> */}
-            <Connections text="PENAMATAN AL-QUR'AN" />
+            <Connections text="PENAMATAN AL-QUR'AN & BARZANJI" />
             <Flex justifyContent={"center"} mt={"-20px"}>
               <Box>
                 <Text fontSize={"69px"} fontWeight={"bold"}>
-                  19
+                  18
                 </Text>
               </Box>
               <Box
@@ -44,7 +44,9 @@ export default function Event() {
                 <Text>Mei</Text>
               </Box>
             </Flex>
-            <Text fontSize={"24px"}>09:00 WITA</Text>
+            <Text fontSize={"24px"} className="font-bodyy font-light">
+              19:00 WITA
+            </Text>
             <div className="font-bodyy text-[14px]">
               Jl. Karaeng Bontomarannu Galesong Kota Kab. Takalar
             </div>
@@ -62,7 +64,9 @@ export default function Event() {
                 <Text className="font-bodyy">Mei</Text>
               </Box>
             </Flex>
-            <Text fontSize={"24px"}>11:00 - 14.30 WITA</Text>
+            <Text fontSize={"24px"} className="font-bodyy font-light">
+              11:00 - 14.00 WITA
+            </Text>
             <div className="font-bodyy text-[14px]">
               Jl. Karaeng Bontomarannu Galesong Kota Kab. Takalar
             </div>
