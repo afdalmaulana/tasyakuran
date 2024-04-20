@@ -22,6 +22,7 @@ const Landing = () => {
   const [isLoading, setIsLoading] = useState(true);
   const audioRef = useRef();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
 
   useEffect(() => {
     if (audioRef.current && isPlaying) {
@@ -39,13 +40,13 @@ const Landing = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
+      setNextImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [currentImageIndex]);
+  }, []);
 
   useEffect(() => {
     const img = new Image();
@@ -55,11 +56,15 @@ const Landing = () => {
     };
   }, [currentImageIndex]);
 
+  useEffect(() => {
+    setCurrentImageIndex(nextImageIndex);
+  }, [nextImageIndex]);
+
   return (
     <>
       {isLoading ? (
         <Center h="100vh">
-          <Text color="white" fontSize="24px">
+          <Text color="white" className="font-bodyy" fontSize="24px">
             Loading... Please wait
           </Text>
         </Center>
