@@ -115,7 +115,7 @@ const Landing = () => {
                 </ul>
               </div>
               <div className="mt-2 italic font-bodyy text-xl font-bold">
-                Minggu,19 Mei 2024
+                Minggu, 19 Mei 2024
               </div>
 
               <Box
