@@ -49,12 +49,18 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = images[currentImageIndex];
-    img.onload = () => {
+    const promises = images.map((image) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = image;
+        img.onload = () => resolve();
+      });
+    });
+
+    Promise.all(promises).then(() => {
       setIsLoading(false);
-    };
-  }, [currentImageIndex]);
+    });
+  }, []);
 
   useEffect(() => {
     setCurrentImageIndex(nextImageIndex);
@@ -63,10 +69,8 @@ const Landing = () => {
   return (
     <>
       {isLoading ? (
-        <Center h="100vh">
-          <Text color="white" className="font-bodyy" fontSize="24px">
-            Loading... Please wait
-          </Text>
+        <Center h="100vh" bg="black" color="white">
+          <Text fontSize="24px">Loading... Please wait</Text>
         </Center>
       ) : (
         <Box position="relative">
