@@ -1,9 +1,9 @@
 import { Box, Center, IconButton, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { FaCompactDisc } from "react-icons/fa6";
-import Landing1 from "../../assets/landing-1.png";
-import Landing2 from "../../assets/landing-2.png";
-import Landing3 from "../../assets/covers.png";
+import Landing1 from "../../assets/Frame17.png";
+import Landing2 from "../../assets/Frame16.png";
+import Landing3 from "../../assets/Frame18.png";
 import song from "../../assets/song.mp3";
 import Event from "./Event";
 import Gallery from "./Gallery";
