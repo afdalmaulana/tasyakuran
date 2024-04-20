@@ -7,12 +7,10 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-// import { Fade } from "react-awesome-reveal";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IoIosMail } from "react-icons/io";
 import Landing from "./Landing";
-// import Landing from "./Pages/Landing";
 import coverPict from "../../assets/covers.png";
 
 export default function Cover() {
@@ -22,48 +20,42 @@ export default function Cover() {
   const toParam = queryParams.get("to");
   const [namaTamu, setNamaTamu] = useState("");
   const [showLanding, setShowLanding] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // const toContent = () => {
-  //   navigate(`/content?to=${toParam || ""}`);
-  // };
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const toContent = () => {
     setShowLanding(true);
   };
 
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
+
   if (showLanding) {
     return <Landing />;
   }
+
   return (
     <>
+      {!isImageLoaded && (
+        <Center height="100vh">
+          <Text className="font-bodyy">Loading... Please Wait</Text>
+        </Center>
+      )}
       <div
-        className="h-[100vh] w-[100%] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative"
+        className={`h-[100vh] w-[100%] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative ${
+          isImageLoaded ? "opacity-100" : "opacity-0"
+        }`}
         style={{ backgroundImage: `url(${coverPict})` }}
       >
-        {/* <Box
-        w={{ base: "100vw", sm: "100vw", md: "438px", lg: "438px" }}
-        backgroundImage={coverPict}
-        backgroundSize={"cover"}
-        backgroundPosition={"center"}
-        backgroundRepeat={"no-repeat"}
-        height={"100vh"}
-        px={"30px"}
-        position={"relative"}
-        color={"#212730"}
-        style={{
-          transition: "background-image 1s ease-in-out",
-        }}
-      > */}
+        <Image
+          src={coverPict}
+          alt="Cover Picture"
+          onLoad={handleImageLoad}
+          display="none"
+        />
         <Center>
           <Box position="absolute" bottom={0}>
-            {/* <Fade cascade duration={1000} direction="up"> */}
-            <Box
-              textAlign={"center"}
-              // px={"80px"}
-              color={"white"}
-              paddingBottom={"24px"}
-            >
+            <Box textAlign={"center"} color={"white"} paddingBottom={"24px"}>
               <div className="font-beauty text-3xl mb-4">
                 Pengislaman & Penamatan
               </div>
@@ -101,8 +93,6 @@ export default function Cover() {
           </Box>
         </Center>
       </div>
-
-      {/* </Box> */}
     </>
   );
 }
