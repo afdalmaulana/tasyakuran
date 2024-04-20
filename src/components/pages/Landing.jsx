@@ -1,9 +1,7 @@
-import { Box, Center, Heading, IconButton, Text } from "@chakra-ui/react";
+import { Box, Center, IconButton, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { FaPlay } from "react-icons/fa";
-import { FaCompactDisc } from "react-icons/fa6";
+import { FaCompactDisc } from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
-import { BsFillDiscFill } from "react-icons/bs";
 import Landing1 from "../../assets/landing-1.png";
 import Landing2 from "../../assets/landing-2.png";
 import Landing3 from "../../assets/covers.png";
@@ -29,6 +27,7 @@ const Landing = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
     if (isPlaying) {
@@ -59,6 +58,7 @@ const Landing = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
+      setIsImageLoaded(false);
     }, 3000);
 
     return () => clearInterval(intervalId);
@@ -68,6 +68,7 @@ const Landing = () => {
     const img = new Image();
     img.src = images[currentImageIndex];
     img.onload = () => {
+      setIsImageLoaded(true);
       document.querySelector(".image-transition").classList.add("loaded");
     };
   }, [currentImageIndex]);
@@ -103,10 +104,11 @@ const Landing = () => {
         <div
           className={`h-[100vh] max-w-[438px] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative image-transition ${
             currentImageIndex === 0 ? "loaded" : ""
-          }`}
+          } ${isImageLoaded ? "opacity-100" : "opacity-0"}`}
           style={{
             backgroundImage: `url(${images[currentImageIndex]})`,
-            transition: "background-image 1s ease-in-out",
+            transition:
+              "background-image 1s ease-in-out, opacity 1s ease-in-out",
           }}
         >
           <div
