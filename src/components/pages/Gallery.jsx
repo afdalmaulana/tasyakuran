@@ -44,7 +44,7 @@ const Gallery = () => {
     >
       <Fade cascade duration={1200}>
         <Heading fontSize={"32px"} as={"h1"} className="font-bodyy">
-          Family's Gallery
+          Gallery
         </Heading>
         <Box py={"16px"} px={"20px"}>
           <ImageGallery
