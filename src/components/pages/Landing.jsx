@@ -1,6 +1,5 @@
 import { Box, Center, Heading, IconButton, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-// import { IoPlayCircle } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { FaCompactDisc } from "react-icons/fa6";
 import { Fade } from "react-awesome-reveal";
@@ -21,6 +20,11 @@ import Family from "./Family";
 
 const images = [Landing1, Landing2, Landing3];
 
+const preloadImage = (url) => {
+  const img = new Image();
+  img.src = url;
+};
+
 const Landing = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef();
@@ -29,16 +33,27 @@ const Landing = () => {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play().catch((error) => {
-        // Tangani kesalahan saat memutar audio
         console.error("Audio playback error:", error);
       });
     } else {
       audioRef.current.pause();
     }
   }, [isPlaying]);
+
   const toggleAudio = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
   };
+
+  useEffect(() => {
+    const nextIndex =
+      currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+    const prevIndex =
+      currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+
+    preloadImage(images[nextIndex]);
+    preloadImage(images[prevIndex]);
+  }, [currentImageIndex]);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
@@ -48,6 +63,15 @@ const Landing = () => {
 
     return () => clearInterval(intervalId);
   }, [currentImageIndex]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = images[currentImageIndex];
+    img.onload = () => {
+      document.querySelector(".image-transition").classList.add("loaded");
+    };
+  }, [currentImageIndex]);
+
   return (
     <>
       <Box position="relative">
@@ -65,8 +89,6 @@ const Landing = () => {
             )
           }
           size={"lg"}
-          // bgColor={"#776B5D"}
-          // bgColor={"white"}
           onClick={toggleAudio}
           borderRadius={"100px"}
           variant={""}
@@ -79,27 +101,18 @@ const Landing = () => {
           <source src={song} type="audio/mpeg" />
         </audio>
         <div
-          className="h-[100vh] max-w-[438px] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative"
+          className={`h-[100vh] max-w-[438px] bg-cover bg-center bg-no-repeat desktop:w-[438px] px-[30px] relative image-transition ${
+            currentImageIndex === 0 ? "loaded" : ""
+          }`}
           style={{
             backgroundImage: `url(${images[currentImageIndex]})`,
             transition: "background-image 1s ease-in-out",
           }}
         >
-          {/* <Box
-          w={{ base: "100vw", sm: "100vw", md: "438px", lg: "438px" }}
-          backgroundImage={`url(${images[currentImageIndex]})`}
-          backgroundSize={"cover"}
-          backgroundPosition={"center"}
-          backgroundRepeat={"no-repeat"}
-          h={"100vh"}
-          py={"20px"}
-          px={"30px"}
-          position={"relative"}
-          color={"#212730"}
-          style={{
-            transition: "background-image 1s ease-in-out",
-          }}
-        > */}
+          <div
+            className="preload-image"
+            style={{ backgroundImage: `url(${images[0]})` }}
+          ></div>
           <Center>
             <Box
               position="absolute"
@@ -107,12 +120,12 @@ const Landing = () => {
               textAlign={"center"}
               color={"white"}
             >
-              <Fade duration={2000} direction="down" cascade="true">
+              <Fade duration={2000} direction="down" cascade={true}>
                 <div className="font-beauty text-4xl mb-4">
                   Pengislaman & Penamatan
                 </div>
                 <div className="text-[12px] mt-1">
-                  <Fade duration={2000} direction="down" cascade="true">
+                  <Fade duration={2000} direction="down" cascade={true}>
                     <ul className="gap-4 space-y-1 font-bodyy mt-1">
                       <li>Alhabsyi Abdullah Kaimuddin Dg Gading</li>
                       <li>Muhammad Raffasya Alfarizqi Dg Tombong</li>
@@ -128,8 +141,6 @@ const Landing = () => {
                 <div className="mt-2 italic font-bodyy text-xl font-bold">
                   Minggu,19 Mei 2024
                 </div>
-                {/* <Text fontStyle={"italic"}>Minggu,19 Mei 2024</Text> */}
-
                 <Box
                   px={"20px"}
                   minWidth={"320px"}
@@ -155,18 +166,6 @@ const Landing = () => {
         <Gift />
         <Gallery />
         <Family />
-
-        {/* </Box> */}
-        {/* <Dates />
-          <Groom1 />
-          <Connections />
-          <Bride1 />
-          <Events />
-          <Gallery />
-          <RSPV />
-          <Quotes />
-          <Gift />
-          <Galery /> */}
       </Box>
     </>
   );
