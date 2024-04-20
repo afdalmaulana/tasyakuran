@@ -99,7 +99,7 @@ const Landing = () => {
             <source src={song} type="audio/mpeg" />
           </audio>
           <Box
-            w={{ base: "100vw", sm: "100vw", md: "438px", lg: "438px" }}
+            maxW={"438px"}
             backgroundImage={`url(${images[currentImageIndex]})`}
             backgroundSize={"cover"}
             backgroundPosition={"center"}
