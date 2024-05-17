@@ -40,7 +40,7 @@ export default function Event() {
                 textAlign={"left"}
                 ml={"10px"}
               >
-                <Text>Minggu</Text>
+                <Text>Sabtu</Text>
                 <Text>Mei</Text>
               </Box>
             </Flex>
